@@ -1,0 +1,6 @@
+[submodule "video_deid"]
+	path = video_deid
+	url = git@github.com:kbjohnson-penn/video-deid.git
+[submodule "audio_deid"]
+	path = audio_deid
+	url = git@github.com:kbjohnson-penn/audio-deid.git
