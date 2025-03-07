@@ -4,3 +4,6 @@
 [submodule "audio_deid"]
 	path = audio_deid
 	url = git@github.com:kbjohnson-penn/audio-deid.git
+[submodule "philter-ucsf"]
+	path = philter-ucsf
+	url = git@github.com:kbjohnson-penn/philter-ucsf.git
