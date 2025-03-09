@@ -17,14 +17,14 @@ MedVidDeID is a comprehensive modular pipeline designed to remove personally ide
 
 This repository is organized as a collection of specialized submodules:
 
-- **[audio_deid](https://github.com/kbjohnson-penn/audio-deid/blob/429e916cd6271c052b46a3f353bf4412e31ce916/README.md)**: Audio redaction for medical recordings
+- **[audio_deid](https://github.com/kbjohnson-penn/audio-deid/tree/429e916cd6271c052b46a3f353bf4412e31ce916)**: Audio redaction for medical recordings
   - Identifies and removes spoken names and identifiers
   - Preserves medical terminology and context
   - Flexible replacement options (silence, tones)
-- **[philter-ucsf](https://github.com/kbjohnson-penn/philter-ucsf/blob/c0420c6e4d63b3339a74f3aa0cd7df99b5985148/README.md)**: Text de-identification for medical notes and transcripts
+- **[philter-ucsf](https://github.com/kbjohnson-penn/philter-ucsf/tree/c0420c6e4d63b3339a74f3aa0cd7df99b5985148)**: Text de-identification for medical notes and transcripts
   - NLP-based PHI detection
   - Handles diverse medical text formats
-- **[video_deid](https://github.com/kbjohnson-penn/video-deid/blob/258a70a2e2f1872a69d7b8b411fbbebbe1948b8d/README.md)**: Face and body de-identification in medical videos
+- **[video_deid](https://github.com/kbjohnson-penn/video-deid/tree/258a70a2e2f1872a69d7b8b411fbbebbe1948b8d)**: Face and body de-identification in medical videos
   - Face detection, tracking, and blurring
   - Pose estimation for identity protection
   - Configurable blur techniques
@@ -46,9 +46,9 @@ git submodule update
 
 For detailed setup and usage instructions, see the README files in each component directory:
 
-- [Philter UCSF Setup](philter-ucsf/README.md)
-- [Audio De-identification Setup](audio_deid/README.md)
-- [Video De-identification Setup](video_deid/README.md)
+- [Philter UCSF Setup](https://github.com/kbjohnson-penn/philter-ucsf/blob/c0420c6e4d63b3339a74f3aa0cd7df99b5985148/README.md)
+- [Audio De-identification Setup](https://github.com/kbjohnson-penn/audio-deid/blob/429e916cd6271c052b46a3f353bf4412e31ce916/README.md)
+- [Video De-identification Setup](https://github.com/kbjohnson-penn/video-deid/blob/258a70a2e2f1872a69d7b8b411fbbebbe1948b8d/README.md)
 
 ## License
 
