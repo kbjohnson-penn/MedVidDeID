@@ -6,32 +6,24 @@
 
 ## Overview
 
-MedVidDeID is a comprehensive medical data de-identification pipeline that removes Protected Health Information (PHI) from multi-modal medical data including video, audio, and text. The system provides enterprise-grade artifact management, audit trails, and HIPAA compliance features for medical research environments.
+MedVidDeID is a comprehensive medical data de-identification pipeline that removes Protected Health Information (PHI) from multi-modal medical data including video, audio, and text.
 
 ## Key Features
 
-- **🎥 Multi-modal De-identification**: Comprehensive PHI removal from video, audio, and text
-- **🔒 Security-Hardened**: Path validation, input sanitization, and thread-safe operations
-- **📋 HIPAA Compliance**: Complete audit trails with artifact lineage tracking
-- **🔄 Pipeline Orchestration**: Automated workflow with error handling and recovery
-- **📊 Artifact Management**: SHA256 checksums, metadata tracking, and immutable storage
-- **🧠 AI-Powered**: YOLO pose detection, WhisperX transcription, and NLP-based PHI detection
-- **⚡ Performance Optimized**: Batch processing, memory management, and concurrent operations
+- **Multi-modal De-identification**: Comprehensive PHI removal from video, audio, and text
+- **Security-Hardened**: Path validation, input sanitization, and thread-safe operations
+- **HIPAA Compliance**: Complete audit trails with artifact lineage tracking
+- **Pipeline Orchestration**: Automated workflow with error handling and recovery
+- **Artifact Management**: SHA256 checksums, metadata tracking, and immutable storage
+- **AI-Powered**: YOLO pose detection, WhisperX transcription, and NLP-based PHI detection
 
-## Architecture Overview
-
-```
-Input Video → Video De-ID → Audio Transcription → PHI Detection → Multi-Modal De-ID → Secure Output
-     ↓              ↓              ↓               ↓                ↓              ↓
-Artifacts      Keypoints     Transcript     PHI Intervals    Scrubbed Data   Audit Trail
-```
 
 ### Core Components
 
-- **📁 Pipeline Orchestration**: Central artifact management with audit trails
-- **🎬 video_deid**: Face blurring and pose-based de-identification using YOLO
-- **🎵 audio_deid**: Speech transcription (WhisperX) and PHI audio scrubbing
-- **📝 philter-ucsf**: Text de-identification with 2,260+ PHI detection patterns
+- **pipeline**: Central artifact management with audit trails
+- **video_deid**: Face blurring and pose-based de-identification using YOLO
+- **audio_deid**: Speech transcription (WhisperX) and PHI audio scrubbing
+- **philter-ucsf**: Text de-identification with 2,260+ PHI detection patterns
 
 ## Quick Start
 
@@ -114,7 +106,7 @@ if result["success"]:
 
 ## Component Details
 
-### 🎬 video_deid Module
+### video_deid Module
 - **Technology**: YOLO v8 pose detection, Kalman filter tracking
 - **Features**: Face blurring, skeleton overlay, temporal consistency
 - **Input**: MP4, AVI, MOV video files
@@ -127,7 +119,7 @@ python -m video_deid.cli --operation_type extract --video input.mp4 --keypoints_
 python -m video_deid.cli --operation_type deid --video input.mp4 --keypoints_csv output.csv --output deid.mp4
 ```
 
-### 🎵 audio_deid Module
+### audio_deid Module
 - **Technology**: WhisperX speech-to-text, regex-based PHI detection
 - **Features**: Word-level timestamp alignment, beep replacement
 - **Input**: MP3, WAV, MP4 audio/video files
@@ -140,7 +132,7 @@ python transcribe.py --audio input.mp3 --output_format json
 python scrub.py --source input.mp3 --json phi_intervals.json --output scrubbed.mp3
 ```
 
-### 📝 philter-ucsf Module
+### philter-ucsf Module
 - **Technology**: 2,260+ regex patterns, NLP context analysis
 - **Features**: Medical terminology preservation, configurable redaction
 - **Input**: JSON, TSV, TXT medical documents
@@ -155,7 +147,7 @@ python main.py -i notes/ -o output/ -f ./configs/philter_delta.json --prod=True
 
 ## Security & Compliance
 
-### 🔒 Security Features
+### Security Features
 
 - **Path Validation**: Prevents directory traversal attacks
 - **Input Sanitization**: Regex-based filename and path cleaning
@@ -163,7 +155,7 @@ python main.py -i notes/ -o output/ -f ./configs/philter_delta.json --prod=True
 - **Process Timeouts**: Prevents resource exhaustion attacks
 - **Thread Safety**: Concurrent artifact operations with proper locking
 
-### 📋 HIPAA Compliance
+### HIPAA Compliance
 
 - **Audit Trails**: Complete operation logging in structured JSON format
 - **Artifact Lineage**: Full provenance tracking from input to output
@@ -227,17 +219,4 @@ black video_deid/
 isort video_deid/
 flake8 video_deid/
 mypy video_deid/
-```
-
-### Testing
-
-```bash
-# Test artifact management system
-python tests/test_artifact_system.py
-
-# Test video processing (requires OpenCV)
-python tests/test_video_artifact_only.py sample_video.mp4
-
-# Full pipeline test (requires all dependencies)
-python tests/test_with_real_video.py sample_video.mp4
 ```
