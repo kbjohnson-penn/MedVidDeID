@@ -205,9 +205,6 @@ temp/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Personal settings
-CLAUDE.md
-
 # Test outputs and temporary files
 test_output/
 test_artifacts/
@@ -215,16 +212,36 @@ artifact_test/
 video_artifact_test/
 pipeline_test/
 artifact_storage/
-*.csv
-*.jsonl
 
-# Artifact management system outputs
-artifacts/
-audit/
-storage/
+# Pipeline processing outputs
+output/
+*/artifacts/storage/
+*/artifacts/audit/
+*/artifacts/metadata/
 
-# Pipeline outputs
+# Generated pipeline files
 keypoints_*.csv
 deid_*.mp4
+audio_*.mp3
+transcript*.json
+phi_intervals*.json
+scrubbed_*.mp3
+deidentified_*.json
+
+# Temporary processing files
+temp_transcribe.py
+temp_*.py
+
+# Log files and audit trails
+*.log
+*.jsonl
+audit*.json
+run_*.json
+
+# PHI and medical data files (SECURITY CRITICAL)
+*phi*
+*patient*
+*medical*
+*clinical*
 
 runs/
